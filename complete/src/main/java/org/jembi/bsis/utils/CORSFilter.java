@@ -5,6 +5,9 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CORSFilter implements Filter {
 
   public CORSFilter() {
@@ -16,6 +19,7 @@ public class CORSFilter implements Filter {
   public void destroy() {
   }
 
+  @Override
   public void doFilter(
       ServletRequest request, ServletResponse response,
       FilterChain chain) throws IOException, ServletException {

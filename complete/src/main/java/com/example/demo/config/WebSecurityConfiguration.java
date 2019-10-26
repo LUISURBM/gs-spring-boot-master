@@ -30,12 +30,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.headers().httpStrictTransportSecurity().xssProtection()
-                .and().authorizeRequests().anyRequest().fullyAuthenticated()
-                .and().csrf().disable();
-
-        http.httpBasic().authenticationEntryPoint(authenticationEntryPoint());
-        http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint());
+        http
+        .authorizeRequests()
+        .anyRequest()
+        .authenticated()
+        .and()
+        .httpBasic();
 
     }
 }
